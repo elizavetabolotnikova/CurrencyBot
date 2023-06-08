@@ -21,7 +21,7 @@ def convert(message: telebot.types.Message):
     if len(user_text)!=3:
         raise APIException("Необходимо ввести 3 параметра")
     quote,base,amount=user_text
-    result=CurrencyConverter.get_price(base,quote,amount)
-    bot.reply_to(message, f"Цена {amount} {keys[base]} в {keys[quote]} : {result}")
+    result=CurrencyConverter.get_price(quote,base,amount)
+    bot.reply_to(message, f"Цена {amount} {keys[quote]} в {keys[base]} составляет {result}")
 
 bot.polling()
